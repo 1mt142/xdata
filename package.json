@@ -1,0 +1,33 @@
+{
+  "name": "xdata",
+  "version": "1.0.0",
+  "description": "dev test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsking-bd/xdata.git"
+  },
+  "keywords": [
+    "n",
+    "x",
+    "sql",
+    "m",
+    "gql"
+  ],
+  "author": "Imtiaz Khandoker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsking-bd/xdata/issues"
+  },
+  "homepage": "https://github.com/jsking-bd/xdata#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
