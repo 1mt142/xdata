@@ -4,11 +4,14 @@ const express = require("express");
 const bodyParser = require('body-parser')
 // Local Imports 
 // Routes
-const adminRoutes =require('./routes/admin')
+const adminData =require('./routes/admin')
 const shopRoutes=require('./routes/shop');
 // Confiq
 const port = 5000;
 const app = express();
+// init view engines
+app.set('view engine','pug');
+app.set('views','views');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use((req,res,next)=>{
@@ -16,14 +19,16 @@ app.use((req,res,next)=>{
   next()
 });
 // Confiq End
-app.use('/admin',adminRoutes);
+app.use('/admin',adminData.routes);
 app.use(shopRoutes);
 
 // Default Page
 
 app.use((req,res,next)=>{
   // res.status(404).send("Page Not Found!")
-  res.status(404).sendFile(path.join(__dirname,'views','404.html'))
+  // res.status(404).sendFile(path.join(__dirname,'views','404.html'))
+  // For PUG
+  res.status(404).render('404',{pageTitle:"Page not Found!"})
 
 })
 
