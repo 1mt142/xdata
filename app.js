@@ -25,9 +25,6 @@ app.use(shopRoutes);
 // Default Page
 
 app.use((req,res,next)=>{
-  // res.status(404).send("Page Not Found!")
-  // res.status(404).sendFile(path.join(__dirname,'views','404.html'))
-  // For PUG
   res.status(404).render('404',{pageTitle:"Page not Found!"})
 
 })
