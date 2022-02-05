@@ -4,8 +4,11 @@ const express = require("express");
 const bodyParser = require('body-parser')
 // Local Imports 
 // Routes
-const adminData =require('./routes/admin')
+const adminRoutes =require('./routes/admin')
 const shopRoutes=require('./routes/shop');
+
+// Controllers
+const errorControllers=require('./controllers/error')
 // Confiq
 const port = 5000;
 const app = express();
@@ -26,13 +29,11 @@ app.use((req,res,next)=>{
   next()
 });
 // Confiq End
-app.use('/admin',adminData.router);
+app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
 // Default Page
-app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: 'error',path: '', });
-  });
+app.use(errorControllers.get404);
   
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
